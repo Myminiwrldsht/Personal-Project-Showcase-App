@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './components/Header';
+import ProjectList from './components/ProjectList';
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Header/>
+      <ProjectList projects={projects}/>
     </>
   )
 }
