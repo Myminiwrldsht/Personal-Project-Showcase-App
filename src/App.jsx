@@ -12,13 +12,20 @@ function App() {
 
     ]
   );
+
   const [searchTerm, setSearchTerm]= useState('');
 
+
+const filteredProjects = projects.filter((project) => {
+  return (
+    project.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+});
   return (
     <>
       <Header/>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
-      <ProjectList projects={projects}/>
+      <ProjectList projects={filteredProjects}/>
     </>
   )
 }
