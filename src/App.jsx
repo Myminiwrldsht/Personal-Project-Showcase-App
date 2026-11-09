@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Header from './components/Header';
 import ProjectList from './components/ProjectList';
+import SearchBar from './components/SearchBar';
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Header/>
+      <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
       <ProjectList projects={projects}/>
     </>
   )
