@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Header from './components/Header';
 import ProjectList from './components/ProjectList';
 import SearchBar from './components/SearchBar';
+import ProjectForm from './components/ProjectForm';
 import './App.css'
 
 function App() {
@@ -21,9 +22,15 @@ const filteredProjects = projects.filter((project) => {
     project.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 });
+
+function handleAddProject(newProject) {
+  const project = {id: Date.now(), title: newProject.title, description:newProject.description};
+  setProjects([...projects, project]);
+}
   return (
     <>
       <Header/>
+      <ProjectForm onAddProject={handleAddProject}/>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
       <ProjectList projects={filteredProjects}/>
     </>
