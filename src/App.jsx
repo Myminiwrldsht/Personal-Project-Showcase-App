@@ -28,12 +28,15 @@ function handleAddProject(newProject) {
   setProjects([...projects, project]);
 }
   return (
-    <>
+    <div className='container py-4 '>
       <Header/>
       <ProjectForm onAddProject={handleAddProject}/>
+      <div className='search-card'>
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
       <ProjectList projects={filteredProjects}/>
-    </>
+      </div>
+
+    </div>
   )
 }
 
